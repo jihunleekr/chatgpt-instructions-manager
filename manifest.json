@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "ChatGPT instructions manager",
+    "description": "A browser extension plugin for managing the Custom instruictions of ChatGPT.",
+    "version": "1.0",
+    "action": {
+        "default_popup": "hello.html",
+        "default_icon": "hello_extensions.png"
+    }
+}
