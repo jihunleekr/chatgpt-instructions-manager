@@ -9,13 +9,13 @@ export default function ProfileList() {
   return (
     <div>
       <h1>프로필 목록</h1>
-      <Link to="/avatar/new">
+      <Link to="/profiles/new">
         <Button variant="text">새로운 프로필</Button>
       </Link>
       <List>
         {profiles?.map((profile) => (
           <ListItem key={profile.id}>
-            <Link to={`/avatar/${profile.id}`}>
+            <Link to={`/profiles/${profile.id}`}>
               <Button variant="text">{profile.name}</Button>
             </Link>
           </ListItem>

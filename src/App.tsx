@@ -10,11 +10,11 @@ function App() {
       element: <ProfileList />,
     },
     {
-      path: "/avatar/new",
+      path: "/profiles/new",
       element: <ProfileForm />,
     },
     {
-      path: "/avatar/:id",
+      path: "/profiles/:id",
       element: <ProfileForm />,
     },
   ]);
