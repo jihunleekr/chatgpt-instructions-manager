@@ -6,6 +6,7 @@ export interface Profile {
   about: string;
   response: string;
   createdAt: Date;
+  updatedAt: Date;
 }
 
 export class MySubClassedDexie extends Dexie {

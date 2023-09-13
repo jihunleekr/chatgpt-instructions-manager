@@ -1,7 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Box, Button, TextField } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { db } from "../database/db";
+import { useEffect } from "react";
 
 interface ProfileFormValues {
   name: string;
@@ -12,14 +13,34 @@ interface ProfileFormValues {
 export default function ProfileForm() {
   const methods = useForm<ProfileFormValues>();
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const handleSubmit: SubmitHandler<ProfileFormValues> = async (data) => {
-    await db.profiles.add({
-      ...data,
-      createdAt: new Date(),
-    });
+    if (id) {
+      await db.profiles.update(Number(id), { ...data, updatedAt: new Date() });
+    } else {
+      await db.profiles.add({
+        ...data,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+    }
     navigate("/");
   };
+
+  useEffect(() => {
+    if (id) {
+      const fetchProfile = async () => {
+        const profile = await db.profiles.get(Number(id));
+        if (profile) {
+          methods.setValue("name", profile.name);
+          methods.setValue("about", profile.about);
+          methods.setValue("response", profile.response);
+        }
+      };
+      fetchProfile();
+    }
+  }, [id]);
 
   return (
     <div>
