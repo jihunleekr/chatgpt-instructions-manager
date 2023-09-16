@@ -61,6 +61,7 @@ export default function ProfileForm() {
             variant="filled"
             label="What would you like ChatGPT to know about you to provide better responses?"
             fullWidth
+            minRows={3}
             {...methods.register("about", { required: true })}
           />
           <TextField
@@ -68,6 +69,7 @@ export default function ProfileForm() {
             variant="filled"
             label="How would you like ChatGPT to respond?"
             fullWidth
+            minRows={3}
             {...methods.register("response", { required: true })}
           />
           <Button fullWidth type="submit">
