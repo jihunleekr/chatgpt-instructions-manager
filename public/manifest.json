@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "ChatGPT instructions manager",
+    "name": "ChatGPT profile manager",
     "description": "A browser extension plugin for managing the Custom instruictions of ChatGPT.",
     "version": "1.0",
     "action": {
